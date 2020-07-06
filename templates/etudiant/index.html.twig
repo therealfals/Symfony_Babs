@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EtudiantController!{% endblock %}
+
+{% block body %}
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <h1 class="text-center">Enregistrer un etudiant</h1>
+  <div class="form-group col-md-6 mx-auto mt-5">
+  {{ form_start(form) }}
+<div class="row">
+  <div class="col-md-6">
+  {{ form_widget(form.nom  ,{'attr': {'class': 'form-control mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill ','name':'nom','placeholder':'Nom'}}) }}
+  </div><div class="col-md-6">
+    {{ form_widget(form.prenom,{'attr': {'name':'nom','placeholder':'Prenom','class': 'mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill '}}) }}
+</div></div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+      {{ form_widget(form.telephone ,{'attr': {'name':'telephone','placeholder':'Telephone','class': 'mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill '}} ) }}
+      </div>
+        <div class="col-md-6">
+
+        {{ form_widget(form.email  ,{'attr': {'name':'email','placeholder':'Email','class': 'mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill '}}) }}
+        </div>
+  </div>
+    <div class="row">
+      <div class="col-md-6">
+  {{ form_widget(form.type ,{'attr': {'class': 'custom-select form-control mt-5 border border-primary bg bg-dark text-white rounded rounded-pill','placeholder':'re'}} ) }}
+      </div> <div class="col-md-6">
+        {{ form_widget(form.date ,{'attr': {'class': 'mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill ','placeholder':'re'}} ) }}
+
+      </div>  </div>
+      <div id="radio">
+        Logé  <input type="radio"onchange="teste(this)" value="oui" name="loge">
+        Non logé  <input type="radio"onchange="teste(this)"  value="non" name="loge">
+
+      </div>
+      <div id="select">
+          <select name="numChambre" class="form-control bg bg-dark rounded rounded-pill border border-primary text-white">
+         <option selected value=""></option>
+          {% for room in rooms[0]  %}
+              <option value="{{ room.id}}">{{ room.type }}</option>
+              {% endfor %}
+              {% for roome in rooms[1]  %}
+                  <option value="{{ roome.id}}">{{ roome.type }}</option>
+              {% endfor %}
+          </select>
+              </div>
+      <div id="input">
+          <input type="text" name="adresse" class="mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill " >
+      </div>
+ <div id="div"></div>
+    <div id="dive"></div>
+
+    <input type="submit" value="Enregistrer" class="form-control bg-primary border-primary text-white mt-5">
+  {{ form_end(form) }}
+
+  </div>
+
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+
+{% endblock %}

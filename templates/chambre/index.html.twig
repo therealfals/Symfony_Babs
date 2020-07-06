@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrer chambre{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Enregistrer chambre</h1>
+<div class="mx-auto col-md-6">
+
+
+    {{ form_start(formChambre) }}
+    <div class="">
+        {{ form_widget(formChambre.numBatiment  ,{'attr': {'class': 'form-control mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill ','name':'nom','placeholder':'Nom'}}) }}
+    </div>
+    <div class="">
+        {{ form_widget(formChambre.type,{'attr': {'name':'nom','placeholder':'Prenom','class': 'mt-5 form-control border border-primary bg bg-dark text-white rounded rounded-pill '}}) }}
+</div>
+    <input type="submit" class="form-control bg-primary border-primary text-white mt-5" value="Enregistrer">
+    {{ form_end(formChambre) }}
+
+</div>
+    {% endblock %}
