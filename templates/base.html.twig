@@ -33,9 +33,17 @@
                         <a class="dropdown-item" href="/showListChambre">Liste chambres</a>
 
                     </div>
+
                 </li>
+
             </ul>
+
         </div>
+        {% if app.user %}
+            <div class="mb-">
+                <a href="{{ path('app_logout') }}"> <button class="btn btn-success float-right">Se deconnecter</button> </a>
+            </div>
+        {% endif %}
     </nav>
     <div class="container bg bg-secondary">
 

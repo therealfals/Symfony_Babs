@@ -68,6 +68,8 @@ public function listChambres(ChambreRepository $chr){
      * @Route("/showListChambre", name="show_ListChambre")
      */
     public function showListChambre(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('chambre/listChambre.html.twig', [
 
         ]);
@@ -77,6 +79,8 @@ public function listChambres(ChambreRepository $chr){
      */
     public function index(Request $request)
     {
+        $pass=password_hash('admin',PASSWORD_BCRYPT);
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $chambre = new Chambre();
 
 

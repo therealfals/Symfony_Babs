@@ -69,7 +69,9 @@ function updateEtudiant(EtudiantRepository $etReps){
      * @Route("/showListEtudiants", name="show_ListEtudiants")
      */
     public function showListEtudiants(){
-          return $this->render('etudiant/listEtudiant.html.twig', [
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        return $this->render('etudiant/listEtudiant.html.twig', [
 
         ]);
     }
@@ -140,6 +142,8 @@ $i++;
      */
     public function index(ChambreRepository $ChambreRepository,Request $request,ChambreRepository $ChambreRepositorys,ChambreRepository $update,ChambreRepository $updates)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $rooms=$ChambreRepository->getFreeRoom('double');
 
         $task = new Etudiant();
